@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "../components/Navigation";
 import { HeroSection } from "../components/HeroSection";
+import { AboutSection } from "../components/AboutSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -20,25 +21,31 @@ export function Welcome() {
   }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Background Image with Blur */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: "url('/images/bg-img03.jpg')",
-          // filter: "blur(1px)",
-          transform: "scale(1.1)" 
-        }}
-      ></div>
+    <div className="min-h-screen">
+      {/* Hero Section with Background */}
+      <div className="relative h-screen w-full overflow-hidden">
+        {/* Background Image with Blur */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
+          style={{ 
+            backgroundImage: "url('/images/bg-img.jpg')",
+            filter: "blur(4px)",
+            transform: "scale(1.1)" 
+          }}
+        ></div>
+        
+        {/* Overlay to adjust contrast/brightness if needed */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        
+        {/* Navigation */}
+        <Navigation />
+        
+        {/* Hero Section */}
+        <HeroSection />
+      </div>
       
-      {/* Overlay to adjust contrast/brightness if needed */}
-      <div className="absolute inset-0 bg-black/20"></div>
-      
-      {/* Navigation */}
-      <Navigation />
-      
-      {/* Hero Section */}
-      <HeroSection />
+      {/* About Section */}
+      <AboutSection />
     </div>
   );
 }
