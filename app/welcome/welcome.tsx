@@ -23,10 +23,10 @@ export function Welcome() {
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Blur */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('/images/bg-img.jpg')",
-          filter: "blur(4px)",
+          backgroundImage: "url('/images/bg-img03.jpg')",
+          // filter: "blur(1px)",
           transform: "scale(1.1)" 
         }}
       ></div>

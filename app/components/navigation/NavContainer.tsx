@@ -4,7 +4,7 @@ interface NavContainerProps {
 
 export function NavContainer({ children }: NavContainerProps) {
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-brand-accent-500/10 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-xl border-b border-white/20">
       {children}
     </nav>
   );

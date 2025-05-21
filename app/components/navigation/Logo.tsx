@@ -1,9 +1,9 @@
 export function Logo() {
   return (
     <img 
-      src="/images/logo.png" 
+      src="/images/logo02.png" 
       alt="SkillSync Logo" 
-      className="h-10 w-auto"
+      className="h-14 w-auto"
     />
   );
 }
