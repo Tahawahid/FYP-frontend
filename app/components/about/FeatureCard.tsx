@@ -33,28 +33,36 @@ export function FeatureCard({ icon, title, description, color }: FeatureCardProp
   const classes = colorClasses[color];
   
   return (
-    <div 
-      className={`rounded-xl p-6 border-2 ${classes.border} ${classes.bg} transition-all duration-300 transform ${
-        isHovered ? `${classes.hoverBorder} ${classes.hoverBg} scale-105 shadow-lg` : 'shadow'
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className={`w-14 h-14 rounded-full ${classes.iconBg} flex items-center justify-center mb-4`}>
-        <Icon name={icon} className="text-white text-xl" />
-      </div>
-      
-      <h3 className={`text-xl font-bold mb-3 ${classes.text}`}>{title}</h3>
-      
-      <p className="text-gray-700">{description}</p>
-      
-      {isHovered && (
-        <div className="mt-4 flex justify-end">
-          <button className={`text-sm font-medium ${classes.text} flex items-center gap-1`}>
+    <div className="h-full"> {/* Fixed height container */}
+      <div 
+        className={`rounded-xl p-6 border-2 ${classes.border} ${classes.bg} transition-all duration-300 h-full
+          ${isHovered ? `${classes.hoverBorder} ${classes.hoverBg} shadow-lg` : 'shadow'}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{
+          transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+          position: 'relative',
+          zIndex: isHovered ? 10 : 1
+        }}
+      >
+        <div className={`w-14 h-14 rounded-full ${classes.iconBg} flex items-center justify-center mb-4`}>
+          <Icon name={icon} className="text-white text-xl" />
+        </div>
+        
+        <h3 className={`text-xl font-bold mb-3 ${classes.text}`}>{title}</h3>
+        
+        <p className="text-gray-700">{description}</p>
+        
+        {/* Fixed-height container for the button to prevent layout shifts */}
+        <div className="h-10 mt-4 flex items-center justify-end">
+          <button 
+            className={`text-sm font-medium ${classes.text} flex items-center gap-1 transition-opacity duration-300`}
+            style={{ opacity: isHovered ? 1 : 0 }}
+          >
             Learn more <Icon name="arrow-right" className="text-xs" />
           </button>
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Navigation } from "../components/Navigation";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
+import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -46,6 +47,9 @@ export function Welcome() {
       
       {/* About Section */}
       <AboutSection />
+
+      {/* Target Audience Section */}
+      <TargetAudienceSection />
     </div>
   );
 }
