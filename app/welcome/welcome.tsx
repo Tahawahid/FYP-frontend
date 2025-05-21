@@ -3,6 +3,7 @@ import { Navigation } from "../components/Navigation";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { TargetAudienceSection } from "~/components/TargetAudienceSection";
+import { HowItWorksSection } from "~/components/HowItWorksSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -50,6 +51,9 @@ export function Welcome() {
 
       {/* Target Audience Section */}
       <TargetAudienceSection />
+
+      {/* How It Works Section */}
+      <HowItWorksSection />
     </div>
   );
 }
