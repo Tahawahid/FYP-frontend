@@ -4,6 +4,7 @@ import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 import { HowItWorksSection } from "~/components/HowItWorksSection";
+import { CoreFeaturesSection } from "~/components/CoreFeaturesSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -54,6 +55,9 @@ export function Welcome() {
 
       {/* How It Works Section */}
       <HowItWorksSection />
+
+      {/* Core Features Section */}
+      <CoreFeaturesSection />
     </div>
   );
 }
