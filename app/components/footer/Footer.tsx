@@ -58,7 +58,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <FooterLogo 
-              logoSrc="/images/logo02.png"
+              logoSrc="/images/logo.png"
               logoAlt="SkillSync Logo"
               companyName="SkillSync"
               description="Empowering professionals to build future-ready skills through AI-driven insights and personalized learning paths."

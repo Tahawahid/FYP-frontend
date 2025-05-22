@@ -4,6 +4,7 @@ export default [
   index("routes/home.tsx"),
   { path: "contact", file: "routes/contact.tsx" },
   { path: "blog", file: "routes/blog.tsx" },
+  { path: "blog/:postId", file: "routes/blog.$postId.tsx" },
   
   {
     path: "auth",

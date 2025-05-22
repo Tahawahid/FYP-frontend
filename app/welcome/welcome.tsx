@@ -6,6 +6,7 @@ import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 import { HowItWorksSection } from "~/components/HowItWorksSection";
 import { CoreFeaturesSection } from "~/components/CoreFeaturesSection";
 import { TestimonialsSection } from "~/components/TestimonialsSection";
+import { BlogSection } from "~/components/BlogSection";
 import { CTASection } from "~/components/CTASection";
 import { Footer } from "~/components/footer";
 
@@ -51,31 +52,24 @@ export function Welcome() {
       </div>
       
       {/* About Section */}
-      <section id="about">
-        <AboutSection />
-      </section>
+      <AboutSection />
 
-      {/* Target Audience Section (Services) */}
-      <section id="audience">
-        <TargetAudienceSection />
-      </section>
+      {/* Target Audience Section */}
+      <TargetAudienceSection />
 
       {/* How It Works Section */}
-      <section id="how-it-works">
-        <HowItWorksSection />
-      </section>
+      <HowItWorksSection />
 
       {/* Core Features Section */}
-      <section id="features">
-        <CoreFeaturesSection />
-      </section>
+      <CoreFeaturesSection />
 
       {/* Testimonials Section */}
-      <section id="testimonials">
-        <TestimonialsSection />
-      </section>
+      <TestimonialsSection />
+      
+      {/* Blog Section */}
+      <BlogSection />
 
-       {/* Call to Action Section */}
+      {/* Call to Action Section */}
       <CTASection />
 
       {/* Footer */}
