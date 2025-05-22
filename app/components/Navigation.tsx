@@ -20,17 +20,14 @@ export function Navigation() {
             <Link to="/" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Home
             </Link>
-            <Link to="/#about" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+            <Link to="/about" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               About
             </Link>
-            <Link to="/#features" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
-              Features
-            </Link>
-            <Link to="/#audience" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+            <Link to="/services" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Services
             </Link>
-            <Link to="/blog" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
-              Blog
+            <Link to="/chat" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+              AI Chat
             </Link>
             <Link to="/contact" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Contact

@@ -4,7 +4,16 @@ export default [
   index("routes/home.tsx"),
   { path: "contact", file: "routes/contact.tsx" },
   { path: "blog", file: "routes/blog.tsx" },
-  { path: "blog/:postId", file: "routes/blog.$postId.tsx" },
+  
+  // Chat routes
+  {
+    path: "chat",
+    file: "routes/chat.tsx",
+    children: [
+      { index: true, file: "routes/chat/index.tsx" },
+      { path: ":chatType", file: "routes/chat[chatType].tsx" }
+    ]
+  },
   
   {
     path: "auth",
