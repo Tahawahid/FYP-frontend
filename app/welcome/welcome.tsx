@@ -5,6 +5,7 @@ import { AboutSection } from "../components/AboutSection";
 import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 import { HowItWorksSection } from "~/components/HowItWorksSection";
 import { CoreFeaturesSection } from "~/components/CoreFeaturesSection";
+import { TestimonialsSection } from "~/components/TestimonialsSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -31,7 +32,7 @@ export function Welcome() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
           style={{ 
-            backgroundImage: "url('/images/bg-img.jpg')",
+            backgroundImage: "url('/images/bg-img04.jpg')",
             filter: "blur(4px)",
             transform: "scale(1.1)" 
           }}
@@ -58,6 +59,9 @@ export function Welcome() {
 
       {/* Core Features Section */}
       <CoreFeaturesSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
     </div>
   );
 }
