@@ -6,6 +6,8 @@ import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 import { HowItWorksSection } from "~/components/HowItWorksSection";
 import { CoreFeaturesSection } from "~/components/CoreFeaturesSection";
 import { TestimonialsSection } from "~/components/TestimonialsSection";
+import { CTASection } from "~/components/CTASection";
+import { Footer } from "~/components/footer";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -62,6 +64,12 @@ export function Welcome() {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
+
+       {/* Call to Action Section */}
+      <CTASection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,12 @@
+export { Footer } from './Footer';
+export { FooterColumn } from './FooterColumn';
+export { FooterLink } from './FooterLink';
+export { FooterLinkList } from './FooterLinkList';
+export { SocialIcon } from './SocialIcon';
+export { SocialIconGroup } from './SocialIconGroup';
+export { ContactItem } from './ContactItem';
+export { NewsletterForm } from './NewsletterForm';
+export { FooterDivider } from './FooterDivider';
+export { FooterBottom } from './FooterBottom';
+export { FooterWave } from './FooterWave';
+export { FooterLogo } from './FooterLogo';
