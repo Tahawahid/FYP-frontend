@@ -8,7 +8,7 @@ export function Navigation() {
           {/* Logo and App Name */}
           <div className="flex items-center gap-2">
             <img 
-              src="/images/logo02.png" 
+              src="/images/logo.png" 
               alt="SkillSync Logo" 
               className="h-10 w-auto"
             />
@@ -20,11 +20,17 @@ export function Navigation() {
             <Link to="/" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Home
             </Link>
-            <Link to="/about" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+            <Link to="/#about" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               About
             </Link>
-            <Link to="/services" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+            <Link to="/#features" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+              Features
+            </Link>
+            <Link to="/#audience" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Services
+            </Link>
+            <Link to="/blog" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
+              Blog
             </Link>
             <Link to="/contact" className="text-brand-primary-700 hover:text-brand-primary-500 transition-colors font-medium">
               Contact

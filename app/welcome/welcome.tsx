@@ -51,19 +51,29 @@ export function Welcome() {
       </div>
       
       {/* About Section */}
-      <AboutSection />
+      <section id="about">
+        <AboutSection />
+      </section>
 
-      {/* Target Audience Section */}
-      <TargetAudienceSection />
+      {/* Target Audience Section (Services) */}
+      <section id="audience">
+        <TargetAudienceSection />
+      </section>
 
       {/* How It Works Section */}
-      <HowItWorksSection />
+      <section id="how-it-works">
+        <HowItWorksSection />
+      </section>
 
       {/* Core Features Section */}
-      <CoreFeaturesSection />
+      <section id="features">
+        <CoreFeaturesSection />
+      </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <section id="testimonials">
+        <TestimonialsSection />
+      </section>
 
        {/* Call to Action Section */}
       <CTASection />
