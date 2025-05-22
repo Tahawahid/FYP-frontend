@@ -34,7 +34,7 @@ export function Welcome() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
           style={{ 
-            backgroundImage: "url('/images/bg-img04.jpg')",
+            backgroundImage: "url('/images/bg-img05.jpg')",
             filter: "blur(4px)",
             transform: "scale(1.1)" 
           }}

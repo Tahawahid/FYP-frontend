@@ -1,25 +1,19 @@
-type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'outline';
+import type { ReactNode } from "react";
 
 interface ButtonProps {
-  children: React.ReactNode;
-  variant?: ButtonVariant;
-  onClick?: () => void;
+  children: ReactNode;
+  variant: "primary" | "secondary" | "outline";
   className?: string;
+  onClick?: () => void;
 }
 
-export function Button({ 
-  children, 
-  variant = 'primary', 
-  onClick, 
-  className = '' 
-}: ButtonProps) {
-  const baseClasses = "px-6 py-3 rounded-lg font-medium transition-colors";
+export function Button({ children, variant, className = "", onClick }: ButtonProps) {
+  const baseClasses = "px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variantClasses = {
-    primary: "bg-brand-primary-600 hover:bg-brand-primary-700 text-white",
-    secondary: "bg-brand-secondary-600 hover:bg-brand-secondary-700 text-white",
-    accent: "bg-brand-accent-600 hover:bg-brand-accent-700 text-white",
-    outline: "bg-transparent border border-brand-primary-600 text-brand-primary-600 hover:bg-brand-primary-50"
+    primary: "bg-brand-primary-600 hover:bg-brand-primary-700 text-white focus:ring-brand-primary-500",
+    secondary: "bg-brand-secondary-600 hover:bg-brand-secondary-700 text-white focus:ring-brand-secondary-500",
+    outline: "bg-transparent border-2 border-brand-primary-500 text-brand-primary-600 hover:bg-brand-primary-50 focus:ring-brand-primary-500"
   };
   
   return (
