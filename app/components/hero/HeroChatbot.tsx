@@ -29,7 +29,7 @@ export function HeroChatbot() {
   return (
     <div className="relative flex justify-start items-center">
       {/* Container for the chatbot and related elements - aligned to the right */}
-      <div className="relative w-3/4 flex justify-end">
+      <div className="relative max-w-xs flex justify-end">
         {/* Pulse effect behind the chatbot */}
         <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-brand-primary-400/10 animate-pulse-slow"></div>
         

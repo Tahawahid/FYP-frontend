@@ -28,26 +28,27 @@ export function FeatureCards() {
       icon: "chart-bar",
       title: "Track Skill Progress",
       description: "Monitor your skill development with intuitive progress tracking.",
-      color: "primary"
+      color: "secondary"
     },
     {
       id: 5,
       icon: "file-alt",
       title: "Optimize Resumes",
       description: "Create targeted resumes that highlight your most relevant skills.",
-      color: "secondary"
+      color: "primary"
     }
   ];
   
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="space-y-4">
+      <h3 className="text-2xl font-bold text-brand-primary-700 mb-6">Key Features</h3>
       {features.map(feature => (
         <FeatureCard 
           key={feature.id}
           icon={feature.icon}
           title={feature.title}
           description={feature.description}
-          color={feature.color}
+          color={feature.color as "primary" | "secondary"}
         />
       ))}
     </div>
