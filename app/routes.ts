@@ -2,6 +2,8 @@ import { type RouteConfig, index } from "@react-router/dev/routes";
 
 export default [
   index("routes/home.tsx"),
+  { path: "contact", file: "routes/contact.tsx" },
+  
   {
     path: "auth",
     file: "routes/auth/_layout.tsx",
