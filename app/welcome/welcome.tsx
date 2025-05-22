@@ -6,9 +6,9 @@ import { TargetAudienceSection } from "~/components/TargetAudienceSection";
 import { HowItWorksSection } from "~/components/HowItWorksSection";
 import { CoreFeaturesSection } from "~/components/CoreFeaturesSection";
 import { TestimonialsSection } from "~/components/TestimonialsSection";
-import { BlogSection } from "~/components/BlogSection";
 import { CTASection } from "~/components/CTASection";
 import { Footer } from "~/components/footer";
+import { BlogSection } from "~/components/BlogSection";
 
 export function Welcome() {
   // Simple dark mode detection - you can replace with a more robust solution if needed
@@ -51,8 +51,10 @@ export function Welcome() {
         <HeroSection />
       </div>
       
-      {/* About Section */}
-      <AboutSection />
+      {/* About Section - Add ID for scroll targeting */}
+      <section id="about">
+        <AboutSection />
+      </section>
 
       {/* Target Audience Section */}
       <TargetAudienceSection />
@@ -60,18 +62,20 @@ export function Welcome() {
       {/* How It Works Section */}
       <HowItWorksSection />
 
-      {/* Core Features Section */}
-      <CoreFeaturesSection />
+      {/* Core Features Section - Add ID for scroll targeting */}
+      <section id="features">
+        <CoreFeaturesSection />
+      </section>
 
       {/* Testimonials Section */}
       <TestimonialsSection />
-      
-      {/* Blog Section */}
-      <BlogSection />
 
       {/* Call to Action Section */}
       <CTASection />
 
+      {/* Blog Section */}
+        <BlogSection />
+        
       {/* Footer */}
       <Footer />
     </div>
