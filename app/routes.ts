@@ -4,7 +4,18 @@ export default [
   index("routes/home.tsx"),
   { path: "contact", file: "routes/contact.tsx" },
   { path: "blog", file: "routes/blog.tsx" },
-  
+  // Dashboard routes
+  {
+    path: "dashboard",
+    file: "routes/dashboard/layout.tsx",
+    children: [
+      { index: true, file: "routes/dashboard/index.tsx" },
+      { path: "skills", file: "routes/dashboard/skills.tsx" },
+      { path: "jobs", file: "routes/dashboard/jobs.tsx" },
+      { path: "learning", file: "routes/dashboard/learning.tsx" },
+      { path: "profile", file: "routes/dashboard/profile.tsx" }
+    ]
+  },
   // Chat routes
   {
     path: "chat",
