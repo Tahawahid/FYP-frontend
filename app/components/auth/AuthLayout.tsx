@@ -23,7 +23,7 @@ export function AuthLayout({
       <header className="py-6 px-4">
         <div className="container mx-auto">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/images/logo02.png" alt="SkillSync" className="h-10 w-auto" />
+            <img src="/images/logo.png" alt="SkillSync" className="h-10 w-auto" />
             <span className="text-xl font-bold text-brand-primary-700">SkillSync</span>
           </Link>
         </div>
@@ -60,7 +60,7 @@ export function AuthLayout({
             // Single column layout for forgot password, reset password, etc.
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <div className="text-center mb-8">
-                <img src="/images/logo02.png" alt="SkillSync" className="h-16 w-auto mx-auto mb-4" />
+                <img src="/images/logo.png" alt="SkillSync" className="h-16 w-auto mx-auto mb-4" />
                 <h1 className="text-3xl font-bold text-brand-primary-800 mb-2">{title}</h1>
                 <p className="text-gray-600">{subtitle}</p>
               </div>
