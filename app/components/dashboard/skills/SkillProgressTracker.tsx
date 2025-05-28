@@ -96,7 +96,7 @@ export function SkillProgressTracker() {
           padding: 20,
           font: {
             size: 11,
-            weight: '500' as const,
+            weight: 500,
           },
         },
       },

@@ -115,7 +115,7 @@ export function SkillRadarChart() {
         pointLabels: {
           font: {
             size: 12,
-            weight: '500' as const,
+            weight: 500,
           },
           color: '#374151',
         },
@@ -139,7 +139,7 @@ export function SkillRadarChart() {
           usePointStyle: true,
           font: {
             size: 12,
-            weight: '500' as const,
+            weight: 500,
           },
         },
       },
