@@ -159,7 +159,7 @@ export function SkillGapAnalysis() {
         <h2 className="text-lg font-semibold text-gray-900">Skill Gap Analysis</h2>
         <div className="flex items-center">
           <span className="text-sm text-gray-600 mr-2">Target Role:</span>
-          <select className="text-sm border-gray-300 rounded-md focus:ring-brand-primary-500 focus:border-brand-primary-500">
+          <select className="text-sm text-gray-800 placeholder-gray-400 border-gray-300 rounded-md focus:ring-brand-primary-500 focus:border-brand-primary-500">
             <option>{targetRole}</option>
             <option>Machine Learning Engineer</option>
             <option>Data Engineer</option>

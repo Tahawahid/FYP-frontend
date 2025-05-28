@@ -209,7 +209,7 @@ export function LearningPathProgress() {
 
         {/* Completion Doughnut Chart */}
         <div>
-          <h3 className="text          -md font-medium text-gray-800 mb-4">Course Completion Status</h3>
+          <h3 className="text-md font-medium text-gray-800 mb-4">Course Completion Status</h3>
           <div className="h-48">
             <Doughnut data={completionData} options={doughnutOptions} />
           </div>
@@ -341,7 +341,76 @@ export function LearningPathProgress() {
           <div className="text-sm text-amber-800">This Week</div>
         </div>
       </div>
+
+      {/* Weekly Learning Goals */}
+      <div className="mt-6 bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg">
+        <h3 className="font-medium text-gray-900 mb-3">This Week's Learning Goals</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white p-3 rounded-lg">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm text-gray-700">Study Hours</span>
+              <span className="text-sm font-bold text-blue-600">12/15h</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+            </div>
+          </div>
+          <div className="bg-white p-3 rounded-lg">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm text-gray-700">Courses</span>
+              <span className="text-sm font-bold text-green-600">2/3</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-green-500 h-2 rounded-full" style={{ width: '67%' }}></div>
+            </div>
+          </div>
+          <div className="bg-white p-3 rounded-lg">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm text-gray-700">Streak</span>
+              <span className="text-sm font-bold text-purple-600">5 days</span>
+            </div>
+            <div className="text-xs text-gray-500">Keep it up! 🔥</div>
+          </div>
+        </div>
+      </div>
+
+            {/* Learning Insights */}
+      <div className="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+        <h4 className="text-sm font-medium text-gray-800 mb-2 flex items-center">
+          <i className="fas fa-lightbulb text-yellow-600 mr-2"></i>
+          Learning Insights
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div className="flex items-start space-x-2">
+            <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+            <p className="text-gray-700">You're 23% faster than average learners in ML topics</p>
+          </div>
+          <div className="flex items-start space-x-2">
+            <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
+            <p className="text-gray-700">Best learning time: 2-4 PM (based on your activity)</p>
+          </div>
+        </div>
+      </div>
+
+            {/* Quick Actions & Tips */}
+      <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
+        <div className="flex items-center space-x-4">
+          <span>Total learning time: 156 hours</span>
+          <span>•</span>
+          <span>Next milestone: Complete ML Engineer path</span>
+        </div>
+        <div className="flex space-x-2">
+          <button className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-lg transition-colors">
+            <i className="fas fa-download mr-1"></i>
+            Export Progress
+          </button>
+          <button className="text-xs bg-brand-primary-600 hover:bg-brand-primary-700 text-white px-3 py-1 rounded-lg transition-colors">
+            <i className="fas fa-plus mr-1"></i>
+            Add Path
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 }
-
