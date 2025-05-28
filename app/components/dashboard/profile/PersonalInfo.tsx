@@ -47,7 +47,7 @@ export function PersonalInfo() {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -61,7 +61,7 @@ export function PersonalInfo() {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg border text-gray-800 placeholder-gray-400 border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -75,7 +75,7 @@ export function PersonalInfo() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -89,7 +89,7 @@ export function PersonalInfo() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
               />
             </div>
             <div>
@@ -102,7 +102,7 @@ export function PersonalInfo() {
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ export function PersonalInfo() {
               value={formData.bio}
               onChange={handleChange}
               rows={4}
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+              className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
             />
           </div>
           <div className="flex justify-end">

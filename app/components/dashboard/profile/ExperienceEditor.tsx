@@ -118,7 +118,7 @@ export function ExperienceEditor() {
                       type="text"
                       value={exp.company}
                       onChange={(e) => handleExperienceChange(exp.id, "company", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                       required
                     />
                   </div>
@@ -130,7 +130,7 @@ export function ExperienceEditor() {
                       type="text"
                       value={exp.position}
                       onChange={(e) => handleExperienceChange(exp.id, "position", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                       required
                     />
                   </div>
@@ -142,7 +142,7 @@ export function ExperienceEditor() {
                       type="text"
                       value={exp.location}
                       onChange={(e) => handleExperienceChange(exp.id, "location", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -154,7 +154,7 @@ export function ExperienceEditor() {
                         type="month"
                         value={exp.startDate}
                         onChange={(e) => handleExperienceChange(exp.id, "startDate", e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                        className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                         required
                       />
                     </div>
@@ -167,7 +167,7 @@ export function ExperienceEditor() {
                           type="month"
                           value={exp.endDate}
                           onChange={(e) => handleExperienceChange(exp.id, "endDate", e.target.value)}
-                          className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                          className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                           disabled={exp.current}
                         />
                       </div>
@@ -196,7 +196,7 @@ export function ExperienceEditor() {
                     value={exp.description}
                     onChange={(e) => handleExperienceChange(exp.id, "description", e.target.value)}
                     rows={3}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   />
                 </div>
                 <div className="flex justify-end">
@@ -226,7 +226,7 @@ export function ExperienceEditor() {
                   type="text"
                   value={newExperience.company}
                   onChange={(e) => setNewExperience({ ...newExperience, company: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="Company name"
                 />
               </div>
@@ -238,7 +238,7 @@ export function ExperienceEditor() {
                   type="text"
                   value={newExperience.position}
                   onChange={(e) => setNewExperience({ ...newExperience, position: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="Job title"
                 />
               </div>
@@ -250,7 +250,7 @@ export function ExperienceEditor() {
                   type="text"
                   value={newExperience.location}
                   onChange={(e) => setNewExperience({ ...newExperience, location: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="City, State"
                 />
               </div>
@@ -263,7 +263,7 @@ export function ExperienceEditor() {
                     type="month"
                     value={newExperience.startDate}
                     onChange={(e) => setNewExperience({ ...newExperience, startDate: e.target.value })}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   />
                 </div>
                 <div>
@@ -274,7 +274,7 @@ export function ExperienceEditor() {
                     type="month"
                     value={newExperience.endDate}
                     onChange={(e) => setNewExperience({ ...newExperience, endDate: e.target.value })}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                     disabled={newExperience.current}
                   />
                 </div>
@@ -302,7 +302,7 @@ export function ExperienceEditor() {
                 value={newExperience.description}
                 onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}
                 rows={3}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 placeholder="Describe your responsibilities and achievements"
               />
             </div>

@@ -105,7 +105,7 @@ export function AccountSettings() {
                 name="currentPassword"
                 value={passwordForm.currentPassword}
                 onChange={handlePasswordChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -119,7 +119,7 @@ export function AccountSettings() {
                 name="newPassword"
                 value={passwordForm.newPassword}
                 onChange={handlePasswordChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -133,7 +133,7 @@ export function AccountSettings() {
                 name="confirmPassword"
                 value={passwordForm.confirmPassword}
                 onChange={handlePasswordChange}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 required
               />
             </div>
@@ -170,7 +170,7 @@ export function AccountSettings() {
             </div>
             <div className="text-center">
               <input
-                type="checkbox"
+                type="checkbox" 
                 checked={notificationSettings.email[setting]}
                 onChange={(e) => handleNotificationChange("email", setting, e.target.checked)}
                 className="h-4 w-4 text-brand-primary-600 focus:ring-brand-primary-500 border-gray-300 rounded"
@@ -200,7 +200,7 @@ export function AccountSettings() {
             <select
               value={privacySettings.profileVisibility}
               onChange={(e) => handlePrivacyChange("profileVisibility", e.target.value)}
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+              className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
             >
               <option value="public">Public - Anyone can view your profile</option>
               <option value="connections">Connections Only - Only your connections can view your profile</option>

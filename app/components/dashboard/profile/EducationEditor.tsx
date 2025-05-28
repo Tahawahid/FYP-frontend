@@ -108,7 +108,7 @@ export function EducationEditor() {
                       type="text"
                       value={edu.institution}
                       onChange={(e) => handleEducationChange(edu.id, "institution", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                       required
                     />
                   </div>
@@ -120,7 +120,7 @@ export function EducationEditor() {
                       type="text"
                       value={edu.degree}
                       onChange={(e) => handleEducationChange(edu.id, "degree", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                       required
                     />
                   </div>
@@ -132,7 +132,7 @@ export function EducationEditor() {
                       type="text"
                       value={edu.field}
                       onChange={(e) => handleEducationChange(edu.id, "field", e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                      className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -144,7 +144,7 @@ export function EducationEditor() {
                         type="month"
                         value={edu.startDate}
                         onChange={(e) => handleEducationChange(edu.id, "startDate", e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                        className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                         required
                       />
                     </div>
@@ -156,7 +156,7 @@ export function EducationEditor() {
                         type="month"
                         value={edu.endDate}
                         onChange={(e) => handleEducationChange(edu.id, "endDate", e.target.value)}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                        className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                         disabled={edu.current}
                       />
                     </div>
@@ -184,7 +184,7 @@ export function EducationEditor() {
                     value={edu.description}
                     onChange={(e) => handleEducationChange(edu.id, "description", e.target.value)}
                     rows={3}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   />
                 </div>
                 <div className="flex justify-end">
@@ -214,7 +214,7 @@ export function EducationEditor() {
                   type="text"
                   value={newEducation.institution}
                   onChange={(e) => setNewEducation({ ...newEducation, institution: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="University or school name"
                 />
               </div>
@@ -226,7 +226,7 @@ export function EducationEditor() {
                   type="text"
                   value={newEducation.degree}
                   onChange={(e) => setNewEducation({ ...newEducation, degree: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="e.g., Bachelor of Science"
                 />
               </div>
@@ -238,7 +238,7 @@ export function EducationEditor() {
                   type="text"
                   value={newEducation.field}
                   onChange={(e) => setNewEducation({ ...newEducation, field: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="e.g., Computer Science"
                 />
               </div>
@@ -251,7 +251,7 @@ export function EducationEditor() {
                     type="month"
                     value={newEducation.startDate}
                     onChange={(e) => setNewEducation({ ...newEducation, startDate: e.target.value })}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   />
                 </div>
                 <div>
@@ -262,7 +262,7 @@ export function EducationEditor() {
                     type="month"
                     value={newEducation.endDate}
                     onChange={(e) => setNewEducation({ ...newEducation, endDate: e.target.value })}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                    className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                     disabled={newEducation.current}
                   />
                 </div>
@@ -290,7 +290,7 @@ export function EducationEditor() {
                 value={newEducation.description}
                 onChange={(e) => setNewEducation({ ...newEducation, description: e.target.value })}
                 rows={3}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                className="w-full px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                 placeholder="Describe your studies, achievements, or activities"
               />
             </div>

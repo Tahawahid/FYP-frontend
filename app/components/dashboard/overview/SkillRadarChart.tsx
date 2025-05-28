@@ -1,8 +1,141 @@
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Radar } from 'react-chartjs-2';
+
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
+
 export function SkillRadarChart() {
+  const radarData = {
+    labels: [
+      'Python Programming',
+      'Machine Learning',
+      'Data Analysis',
+      'SQL & Databases',
+      'Cloud Computing',
+      'Statistics',
+      'Data Visualization',
+      'Communication'
+    ],
+    datasets: [
+      {
+        label: 'Current Skills',
+        data: [85, 70, 75, 80, 45, 60, 65, 70],
+        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+        borderColor: 'rgba(59, 130, 246, 1)',
+        borderWidth: 2,
+        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
+        pointRadius: 6,
+        pointHoverRadius: 8,
+      },
+      {
+        label: 'Target Level',
+        data: [90, 85, 80, 85, 75, 80, 75, 85],
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        borderColor: 'rgba(16, 185, 129, 1)',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(16, 185, 129, 1)',
+        pointRadius: 4,
+        pointHoverRadius: 6,
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom' as const,
+        labels: {
+          usePointStyle: true,
+          padding: 20,
+          font: {
+            size: 12,
+            weight: '500' as const,
+          },
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        borderWidth: 1,
+        cornerRadius: 8,
+        callbacks: {
+          label: function(context: any) {
+            return `${context.dataset.label}: ${context.parsed.r}%`;
+          }
+        }
+      },
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 100,
+        min: 0,
+        ticks: {
+          stepSize: 20,
+          font: {
+            size: 10,
+          },
+          callback: function(value: any) {
+            return value + '%';
+          },
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)',
+        },
+        angleLines: {
+          color: 'rgba(0, 0, 0, 0.1)',
+        },
+        pointLabels: {
+          font: {
+            size: 11,
+            weight: '500' as const,
+          },
+          color: '#374151',
+        },
+      },
+    },
+  };
+
+  const skillBreakdown = [
+    { name: 'Python', level: 85, color: 'blue' },
+    { name: 'Machine Learning', level: 70, color: 'green' },
+    { name: 'Data Analysis', level: 75, color: 'purple' },
+    { name: 'SQL', level: 80, color: 'indigo' },
+    { name: 'Cloud Computing', level: 45, color: 'amber' },
+    { name: 'Statistics', level: 60, color: 'red' },
+    { name: 'Data Viz', level: 65, color: 'pink' },
+    { name: 'Communication', level: 70, color: 'emerald' },
+  ];
+
   return (
     <div className="bg-white rounded-xl shadow-sm p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-lg font-semibold text-gray-900">Skill Proficiency</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Skill Proficiency Radar</h2>
         <select className="text-sm border-gray-300 rounded-md focus:ring-brand-primary-500 focus:border-brand-primary-500">
           <option>All Skills</option>
           <option>Technical Skills</option>
@@ -10,102 +143,65 @@ export function SkillRadarChart() {
         </select>
       </div>
       
-      <div className="aspect-square max-w-md mx-auto relative">
-        {/* This would be replaced with an actual chart library in a real implementation */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-full p-4">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Background pentagon */}
-              <polygon 
-                points="50,10 90,40 75,85 25,85 10,40" 
-                fill="none" 
-                stroke="#e5e7eb" 
-                strokeWidth="0.5"
-              />
-              <polygon 
-                points="50,20 80,45 67.5,80 32.5,80 20,45" 
-                fill="none" 
-                stroke="#e5e7eb" 
-                strokeWidth="0.5"
-              />
-              <polygon 
-                points="50,30 70,50 60,75 40,75 30,50" 
-                fill="none" 
-                stroke="#e5e7eb" 
-                strokeWidth="0.5"
-              />
-              <polygon 
-                points="50,40 60,55 52.5,70 47.5,70 40,55" 
-                fill="none" 
-                stroke="#e5e7eb" 
-                strokeWidth="0.5"
-              />
-              
-              {/* Data pentagon */}
-              <polygon 
-                points="50,15 85,42 72,80 28,80 15,42" 
-                fill="rgba(0, 114, 255, 0.2)" 
-                stroke="#0072ff" 
-                strokeWidth="1"
-              />
-              
-              {/* Axes */}
-              <line x1="50" y1="10" x2="50" y2="85" stroke="#e5e7eb" strokeWidth="0.5" />
-              <line x1="10" y1="40" x2="90" y2="40" stroke="#e5e7eb" strokeWidth="0.5" />
-              <line x1="25" y1="85" x2="75" y2="85" stroke="#e5e7eb" strokeWidth="0.5" />
-              <line x1="50" y1="10" x2="25" y2="85" stroke="#e5e7eb" strokeWidth="0.5" />
-              <line x1="50" y1="10" x2="75" y2="85" stroke="#e5e7eb" strokeWidth="0.5" />
-              
-              {/* Data points */}
-              <circle cx="50" cy="15" r="2" fill="#0072ff" />
-              <circle cx="85" cy="42" r="2" fill="#0072ff" />
-              <circle cx="72" cy="80" r="2" fill="#0072ff" />
-              <circle cx="28" cy="80" r="2" fill="#0072ff" />
-              <circle cx="15" cy="42" r="2" fill="#0072ff" />
-              
-              {/* Labels */}
-              <text x="50" y="5" textAnchor="middle" fontSize="3" fill="#4b5563">Python</text>
-              <text x="95" y="40" textAnchor="start" fontSize="3" fill="#4b5563">Machine Learning</text>
-              <text x="75" y="92" textAnchor="middle" fontSize="3" fill="#4b5563">Data Analysis</text>
-              <text x="25" y="92" textAnchor="middle" fontSize="3" fill="#4b5563">SQL</text>
-              <text x="5" y="40" textAnchor="end" fontSize="3" fill="#4b5563">Cloud Computing</text>
-            </svg>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Radar Chart */}
+        <div className="lg:col-span-2">
+          <div className="h-80">
+            <Radar data={radarData} options={options} />
           </div>
+        </div>
+
+        {/* Skill Breakdown */}
+        <div className="space-y-3">
+          <h3 className="text-md font-medium text-gray-800 mb-4">Skill Breakdown</h3>
+          {skillBreakdown.map((skill, index) => (
+            <div key={index} className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className={`w-3 h-3 rounded-full bg-${skill.color}-500 mr-3`}></div>
+                <span className="text-sm font-medium text-gray-700">{skill.name}</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                  <div 
+                    className={`bg-${skill.color}-500 h-2 rounded-full transition-all duration-300`}
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
+                <span className="text-sm font-medium text-gray-900 w-8">{skill.level}%</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      
-      <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-2">
-        <div className="text-center">
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div className="h-1.5 rounded-full bg-brand-primary-500" style={{ width: "85%" }}></div>
-          </div>
-          <p className="text-xs text-gray-600 mt-1">Python</p>
+
+      {/* Insights */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <h4 className="font-medium text-blue-900 mb-2">Strongest Skills</h4>
+          <ul className="text-sm text-blue-800 space-y-1">
+            <li>• Python Programming (85%)</li>
+            <li>• SQL & Databases (80%)</li>
+            <li>• Data Analysis (75%)</li>
+          </ul>
         </div>
-        <div className="text-center">
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div className="h-1.5 rounded-full bg-brand-primary-500" style={{ width: "75%" }}></div>
-          </div>
-          <p className="text-xs text-gray-600 mt-1">Machine Learning</p>
+        <div className="bg-amber-50 p-4 rounded-lg">
+          <h4 className="font-medium text-amber-900 mb-2">Growth Areas</h4>
+          <ul className="text-sm text-amber          -800 space-y-1">
+            <li>• Cloud Computing (45%)</li>
+            <li>• Statistics (60%)</li>
+            <li>• Data Visualization (65%)</li>
+          </ul>
         </div>
-        <div className="text-center">
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div className="h-1.5 rounded-full bg-brand-primary-500" style={{ width: "65%" }}></div>
-          </div>
-          <p className="text-xs text-gray-600 mt-1">Data Analysis</p>
-        </div>
-        <div className="text-center">
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div className="h-1.5 rounded-full bg-brand-primary-500" style={{ width: "70%" }}></div>
-          </div>
-          <p className="text-xs text-gray-600 mt-1">SQL</p>
-        </div>
-        <div className="text-center">
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div className="h-1.5 rounded-full bg-brand-primary-500" style={{ width: "60%" }}></div>
-          </div>
-          <p className="text-xs text-gray-600 mt-1">Cloud Computing</p>
+        <div className="bg-green-50 p-4 rounded-lg">
+          <h4 className="font-medium text-green-900 mb-2">Recommendations</h4>
+          <ul className="text-sm text-green-800 space-y-1">
+            <li>• Focus on AWS/Azure training</li>
+            <li>• Practice statistical modeling</li>
+            <li>• Improve presentation skills</li>
+          </ul>
         </div>
       </div>
     </div>
   );
 }
+

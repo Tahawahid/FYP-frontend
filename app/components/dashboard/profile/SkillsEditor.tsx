@@ -65,7 +65,7 @@ export function SkillsEditor() {
                   type="text"
                   value={skill.name}
                   onChange={(e) => handleSkillChange(skill.id, "name", e.target.value)}
-                  className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+                  className="flex-1 px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
                   placeholder="Skill name"
                   required
                 />
@@ -98,7 +98,7 @@ export function SkillsEditor() {
               type="text"
               value={newSkill.name}
               onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
-              className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+              className="flex-1 px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
               placeholder="Add a new skill"
             />
             <div className="flex-1 flex items-center space-x-2">

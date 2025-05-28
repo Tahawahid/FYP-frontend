@@ -19,7 +19,7 @@ export function ChatLayout({
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <div className="w-72 h-full">
+      <div className="w-64 h-full">
         <ChatSidebar 
           chatHistory={chatHistory}
           currentChatId={currentChatId}
@@ -35,4 +35,3 @@ export function ChatLayout({
     </div>
   );
 }
-

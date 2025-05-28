@@ -24,10 +24,6 @@ function getChatInfo(chatType: string) {
       title: "Career Guidance Chat",
       description: "Receive personalized career advice and explore potential career paths based on your skills and interests."
     },
-    resume: {
-      title: "Resume Review Chat",
-      description: "Get feedback on your resume and suggestions for improvements to make it stand out to employers."
-    },
     skills: {
       title: "Skill Assessment Chat",
       description: "Evaluate your current skills and identify areas for improvement to reach your career goals."
@@ -43,14 +39,16 @@ export default function ChatPage() {
   const chatIdFromUrl = searchParams.get('chatId');
   const navigate = useNavigate();
   
-  // Combine all chat histories for the sidebar
+  // Filter out resume chats and combine all chat histories for the sidebar
   const allChatHistory = [
-    ...Object.entries(chatData).flatMap(([type, chats]) => 
-      chats.map(chat => ({
-        ...chat,
-        type
-      }))
-    )
+    ...Object.entries(chatData)
+      .filter(([type]) => type !== 'resume') // Remove resume chats
+      .flatMap(([type, chats]) => 
+        chats.map(chat => ({
+          ...chat,
+          type
+        }))
+      )
   ];
   
   // Sort by date (assuming the date strings are comparable)
@@ -63,7 +61,7 @@ export default function ChatPage() {
   });
   
   // Get chat data for the current type
-  const validChatType = chatType && ['general', 'career', 'resume', 'skills'].includes(chatType) 
+  const validChatType = chatType && ['general', 'career', 'skills'].includes(chatType) 
     ? chatType 
     : 'general';
     
@@ -71,7 +69,7 @@ export default function ChatPage() {
   
   // Redirect if chat type is invalid
   useEffect(() => {
-    if (chatType && !['general', 'career', 'resume', 'skills'].includes(chatType)) {
+    if (chatType && !['general', 'career', 'skills'].includes(chatType)) {
       navigate('/chat', { replace: true });
     }
   }, [chatType, navigate]);
@@ -124,7 +122,7 @@ export default function ChatPage() {
         />
       ) : (
         <div className="h-full flex items-center justify-center">
-          <p className="text-gray-500">Select a chat from the sidebar or start a new conversation</p>
+          <p className="text-gray-500 text-sm">Select a chat from the sidebar or start a new conversation</p>
         </div>
       )}
     </ChatLayout>

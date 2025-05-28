@@ -34,41 +34,41 @@ export function ChatSidebar({
   return (
     <div className="h-full flex flex-col bg-white border-r border-gray-200">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200">
-        <h2 className="text-xl font-bold text-brand-primary-800">Chat History</h2>
-        <p className="text-sm text-gray-600 mt-1">Your previous conversations</p>
+      <div className="p-3 border-b border-gray-200">
+        <h2 className="text-lg font-bold text-brand-primary-800">Chat History</h2>
+        <p className="text-xs text-gray-600 mt-1">Your conversations</p>
       </div>
       
       {/* New chat button */}
-      <div className="p-4">
+      <div className="p-3">
         <button
           onClick={onNewChat}
-          className="w-full py-2 px-4 bg-brand-primary-600 hover:bg-brand-primary-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+          className="w-full py-2 px-3 bg-brand-primary-600 hover:bg-brand-primary-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2 text-sm"
         >
-          <i className="fas fa-plus"></i>
+          <i className="fas fa-plus text-xs"></i>
           <span>New Chat</span>
         </button>
       </div>
       
       {/* Search */}
-      <div className="px-4 pb-2">
+      <div className="px-3 pb-2">
         <div className="relative">
           <input
             type="text"
-            placeholder="Search conversations..."
+            placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full p-2 pl-8 rounded-lg border border-gray-300 placeholder-gray-400 text-gray-800 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
+            className="w-full p-2 pl-7 text-sm rounded-lg border border-gray-300 placeholder-gray-400 text-gray-800 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500"
           />
           <div className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search text-xs"></i>
           </div>
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
             >
-              <i className="fas fa-times"></i>
+              <i className="fas fa-times text-xs"></i>
             </button>
           )}
         </div>
@@ -82,12 +82,12 @@ export function ChatSidebar({
               <button
                 key={chat.id}
                 onClick={() => onSelectChat(chat.id)}
-                className={`w-full text-left p-4 hover:bg-gray-50 transition-colors ${
+                className={`w-full text-left p-3 hover:bg-gray-50 transition-colors ${
                   currentChatId === chat.id ? 'bg-brand-primary-50' : ''
                 }`}
               >
                 <div className="flex justify-between items-start">
-                  <h3 className="font-medium text-gray-900 truncate max-w-[80%]">{chat.title}</h3>
+                  <h3 className="font-medium text-gray-900 truncate max-w-[80%] text-sm">{chat.title}</h3>
                   <span className="text-xs text-gray-500">{chat.date}</span>
                 </div>
                 <div className="flex items-center mt-1">
@@ -95,36 +95,35 @@ export function ChatSidebar({
                     <span className={`text-xs px-2 py-0.5 rounded-full mr-2 ${
                       chat.type === 'general' ? 'bg-brand-primary-100 text-brand-primary-800' :
                       chat.type === 'career' ? 'bg-brand-secondary-100 text-brand-secondary-800' :
-                      chat.type === 'resume' ? 'bg-brand-accent-100 text-brand-accent-800' :
+                      chat.type === 'skills' ? 'bg-brand-accent-100 text-brand-accent-800' :
                       'bg-gray-100 text-gray-800'
                     }`}>
                       {chat.type.charAt(0).toUpperCase() + chat.type.slice(1)}
                     </span>
                   )}
-                  <p className="text-sm text-gray-600 truncate">{chat.preview}</p>
+                  <p className="text-xs text-gray-600 truncate">{chat.preview}</p>
                 </div>
               </button>
             ))}
           </div>
         ) : (
-          <div className="p-4 text-center text-gray-500">
+          <div className="p-3 text-center text-gray-500 text-sm">
             {searchQuery ? "No conversations found" : "No conversation history"}
           </div>
         )}
       </div>
       
       {/* Footer */}
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-3 border-t border-gray-200">
         <div className="flex items-center justify-between">
-          <div className="text-sm text-gray-600">
-            <span className="font-medium">SkillSync</span> AI Assistant
+          <div className="text-xs text-gray-600">
+            <span className="font-medium">SkillSync</span> AI
           </div>
           <button className="text-gray-500 hover:text-gray-700">
-            <i className="fas fa-cog"></i>
+            <i className="fas fa-cog text-xs"></i>
           </button>
         </div>
       </div>
     </div>
   );
 }
-

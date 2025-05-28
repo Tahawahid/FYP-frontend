@@ -38,5 +38,17 @@ export default [
       { path: "reset-password", file: "routes/auth/reset-password.tsx" },
       { path: "verify-email", file: "routes/auth/verify-email.tsx" },
     ]
-  }
+  },
+
+  // Error pages
+  { path: "404", file: "routes/404.tsx" },
+  { path: "500", file: "routes/500.tsx" },
+  { path: "403", file: "routes/403.tsx" },
+  { path: "offline", file: "routes/offline.tsx" },
+  { path: "maintenance", file: "routes/maintenance.tsx" },
+  { path: "error", file: "routes/error.tsx" },
+  { path: "help", file: "routes/help.tsx" },
+  { path: "status", file: "routes/status.tsx" },
+  { path: "privacy", file: "routes/privacy.tsx" },
+  { path: "terms", file: "routes/terms.tsx" },
 ] satisfies RouteConfig;
