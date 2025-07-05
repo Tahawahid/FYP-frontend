@@ -132,8 +132,8 @@ export function EducationStep({ formData, updateFormData, nextStep, prevStep }: 
               className="w-full px-4 py-3 rounded-lg border text-gray-800 placeholder-gray-400 border-gray-300 focus:ring-2 focus:ring-brand-primary-100 focus:border-brand-primary-100 transition-colors"
             >
               <option value="">Select graduation year</option>
-              {Array.from({ length: 30 }, (_, i) => {
-                const year = new Date().getFullYear() - i;
+              {Array.from({ length: 12 }, (_, i) => {
+                const year = new Date().getFullYear() + i;
                 return (
                   <option key={year} value={year.toString()}>
                     {year}
