@@ -15,6 +15,16 @@ export function LoginForm() {
     
     try {
       // Simulate API call
+      const response = await fetch("https://localhost:7102/api/Auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      if (response.ok && data.token) {
+        localStorage.setItem("token", data.token); // Save JWT token
+        // Redirect or update UI
+      }
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // TODO: Implement actual login logic
@@ -51,7 +61,7 @@ export function LoginForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black not-[]:w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="you@example.com"
           />
         </div>
@@ -71,7 +81,7 @@ export function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="••••••••"
           />
         </div>

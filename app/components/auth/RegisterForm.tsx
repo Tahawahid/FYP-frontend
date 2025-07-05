@@ -4,7 +4,7 @@ import { Icon } from "../common/Icon";
 
 export function RegisterForm() {
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullname: "", 
     email: "",
     password: "",
     confirmPassword: ""
@@ -20,26 +20,31 @@ export function RegisterForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    
-    // Validate passwords match
+
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-    
+
     setIsLoading(true);
-    
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // TODO: Implement actual registration logic
-      console.log("Registration attempt with:", formData);
-      
-      // Redirect to email verification page
-      window.location.href = "/auth/verify-email";
-    } catch (err) {
-      setError("Registration failed. Please try again.");
+      const response = await fetch("https://localhost:7102/api/Auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Registration failed");
+      }
+
+      // Registration successful, redirect to login
+      window.location.href = "/auth/login";
+    } catch (err: any) {
+      setError(err.message || "Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -62,13 +67,13 @@ export function RegisterForm() {
             <Icon name="user" className="text-gray-400" />
           </div>
           <input
-            id="fullName"
-            name="fullName"
+            id="fullname"
+            name="fullname"
             type="text"
-            value={formData.fullName}
+            value={formData.fullname}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="John Doe"
           />
         </div>
@@ -89,7 +94,7 @@ export function RegisterForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="you@example.com"
           />
         </div>
@@ -110,7 +115,7 @@ export function RegisterForm() {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="••••••••"
           />
         </div>
@@ -131,7 +136,7 @@ export function RegisterForm() {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
+            className="text-black w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
             placeholder="••••••••"
           />
         </div>

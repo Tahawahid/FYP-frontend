@@ -9,6 +9,42 @@ import { SkillsStep } from "./steps/SkillsStep";
 import { GoalsStep } from "./steps/GoalsStep";
 import { CompletionStep } from "./steps/CompletionStep";
 
+async function submitOnboarding(formData: FormData) {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You must be logged in to submit onboarding data.");
+    return;
+  }
+
+  // Basic validation example
+  if (!formData.fullName || !formData.age || !formData.location) {
+    alert("Please fill all required fields.");
+    return;
+  }
+  if (isNaN(Number(formData.age))) {
+    alert("Age must be a number.");
+    return;
+  }
+
+  const response = await fetch("http://localhost:7102/api/UserProfile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(formData)
+  });
+
+  if (response.ok) {
+    // Success: show message or redirect
+    alert("Profile saved successfully!");
+  } else {
+    // Handle error
+    const data = await response.json();
+    alert(data.message || "Failed to save profile.");
+  }
+}
+
 export interface FormData {
   // Personal Info
   fullName: string;

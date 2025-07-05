@@ -10,6 +10,13 @@ interface ExperienceStepProps {
   totalSteps: number;
 }
 
+const months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+const currentYear = new Date().getFullYear();
+const years = Array.from({ length: 50 }, (_, i) => (currentYear - i).toString());
+
 export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }: ExperienceStepProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showAddRole, setShowAddRole] = useState(false);
@@ -19,7 +26,12 @@ export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }:
     duration: "",
     description: ""
   });
-  
+  const [startMonth, setStartMonth] = useState("");
+  const [startYear, setStartYear] = useState("");
+  const [endMonth, setEndMonth] = useState("");
+  const [endYear, setEndYear] = useState("");
+  const [isPresent, setIsPresent] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -45,10 +57,24 @@ export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }:
   
   const addRole = () => {
     if (newRole.title.trim() && newRole.company.trim()) {
+      // Always generate duration from current date state
+      let duration = "";
+      if (startMonth && startYear) {
+        duration = `${startMonth} ${startYear} - `;
+        if (isPresent) {
+          duration += "Present";
+        } else if (endMonth && endYear) {
+          duration += `${endMonth} ${endYear}`;
+        }
+      }
       updateFormData({
-        previousRoles: [...formData.previousRoles, { ...newRole }]
+        previousRoles: [
+          ...formData.previousRoles,
+          { ...newRole, duration }
+        ]
       });
       setNewRole({ title: "", company: "", duration: "", description: "" });
+      setStartMonth(""); setStartYear(""); setEndMonth(""); setEndYear(""); setIsPresent(false);
       setShowAddRole(false);
     }
   };
@@ -58,13 +84,56 @@ export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }:
       previousRoles: formData.previousRoles.filter((_, i) => i !== index)
     });
   };
-  
+
+  // Update duration string whenever date fields change
+  const updateDuration = (sm: string, sy: string, em: string, ey: string, present: boolean) => {
+    let duration = "";
+    if (sm && sy) {
+      duration = `${sm} ${sy} - `;
+      if (present) {
+        duration += "Present";
+      } else if (em && ey) {
+        duration += `${em} ${ey}`;
+      }
+    }
+    setNewRole(prev => ({ ...prev, duration }));
+  };
+
+  // Handlers for date changes
+  const handleStartMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setStartMonth(e.target.value);
+    updateDuration(e.target.value, startYear, endMonth, endYear, isPresent);
+  };
+  const handleStartYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setStartYear(e.target.value);
+    updateDuration(startMonth, e.target.value, endMonth, endYear, isPresent);
+  };
+  const handleEndMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setEndMonth(e.target.value);
+    updateDuration(startMonth, startYear, e.target.value, endYear, isPresent);
+  };
+  const handleEndYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setEndYear(e.target.value);
+    updateDuration(startMonth, startYear, endMonth, e.target.value, isPresent);
+  };
+  const handlePresent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsPresent(e.target.checked);
+    updateDuration(startMonth, startYear, endMonth, endYear, e.target.checked);
+  };
+
+  // Reset date fields when closing add role
+  const handleCloseAddRole = () => {
+    setShowAddRole(false);
+    setStartMonth(""); setStartYear(""); setEndMonth(""); setEndYear(""); setIsPresent(false);
+    setNewRole({ title: "", company: "", duration: "", description: "" });
+  };
+
   return (
     <div className="p-8 md:p-12">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-brand-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-brand-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
             <i className="fas fa-briefcase text-brand-primary-600 text-2xl"></i>
           </div>
           <h2 className="text-3xl font-bold text-brand-primary-800 mb-2">
@@ -138,13 +207,41 @@ export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }:
                     className="px-4 py-2 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-500 focus:border-brand-primary-500 transition-colors"
                   />
                 </div>
-                <input
-                  type="text"
-                  placeholder="Duration (e.g., Jan 2020 - Dec 2022)"
-                  value={newRole.duration}
-                  onChange={(e) => setNewRole(prev => ({ ...prev, duration: e.target.value }))}
-                  className="w-full px-4 py-2 text-gray-800 placeholder-gray-400 rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:ring-2 focus:ring-brand-primary-100 focus:border-brand-primary-100 transition-colors"
-                />
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                  <div className="flex gap-2">
+                    <select value={startMonth} onChange={handleStartMonth} className="px-2 py-2 rounded-lg border border-gray-300">
+                      <option value="">Month</option>
+                      {months.map(m => <option key={m} value={m}>{m}</option>)}
+                    </select>
+                    <select value={startYear} onChange={handleStartYear} className="px-2 py-2 rounded-lg border border-gray-300">
+                      <option value="">Year</option>
+                      {years.map(y => <option key={y} value={y}>{y}</option>)}
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                  <div className="flex gap-2 items-center">
+                    <select value={endMonth} onChange={handleEndMonth} className="px-2 py-2 rounded-lg border border-gray-300" disabled={isPresent}>
+                      <option value="">Month</option>
+                      {months.map(m => <option key={m} value={m}>{m}</option>)}
+                    </select>
+                    <select value={endYear} onChange={handleEndYear} className="px-2 py-2 rounded-lg border border-gray-300" disabled={isPresent}>
+                      <option value="">Year</option>
+                      {years.map(y => <option key={y} value={y}>{y}</option>)}
+                    </select>
+                    <label className="ml-2 flex items-center gap-1">
+                      <input
+                        type="checkbox"
+                        checked={isPresent}
+                        onChange={handlePresent}
+                        className="h-4 w-4"
+                      />
+                      Present
+                    </label>
+                  </div>
+                </div>
                 <textarea
                   placeholder="Brief description of your role and achievements"
                   value={newRole.description}
@@ -162,7 +259,7 @@ export function ExperienceStep({ formData, updateFormData, nextStep, prevStep }:
                   </button>
                   <button
                     type="button"
-                    onClick={() => setShowAddRole(false)}
+                    onClick={handleCloseAddRole}
                     className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors"
                   >
                     Cancel
